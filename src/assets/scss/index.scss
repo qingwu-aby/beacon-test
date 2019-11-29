@@ -1,8 +1,13 @@
+$designWidth: 375;
+$baseFont: 14;
+$maxWidth: 600;
+$minWidth: 320;
+
 html {
   font-size: $baseFont + px;
   margin: 0 auto;
-  background-color: $neutralBg;
-  color: $neutralTitle;
+  background-color: #fff;
+  color: #000;
   height: 100%;
 }
 
@@ -39,7 +44,7 @@ input {
   outline: none;
   border: none;
   &::placeholder {
-    color: $neutralDisable;
+    color: #ddd;
   }
 }
 

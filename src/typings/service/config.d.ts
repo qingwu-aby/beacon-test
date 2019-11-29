@@ -1,5 +1,5 @@
 declare namespace CONFIG {
-  interface IConfig {
+  export interface IConfig {
     api: {
       uri: string;
       timeout_s?: number;
