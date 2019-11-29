@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
+import enhancer from './enhancer';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import 'assets/scss/function.scss'
+import 'assets/scss/index.scss'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

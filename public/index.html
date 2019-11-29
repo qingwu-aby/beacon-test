@@ -25,6 +25,16 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <script>
+      const dpr = window.devicePixelRatio
+      const meta = document.createElement('meta') // 创建meta视口标签
+      meta.setAttribute('name', 'viewport') // 设置name为viewport
+      meta.setAttribute(
+        'content',
+        `width=device-width, user-scalable=no, initial-scale=${1 / dpr}, maximum-scale=${1 /
+          dpr}, minimum-scale=${1 / dpr}`
+      ) // 动态初始缩放、最大缩放、最小缩放比例
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
