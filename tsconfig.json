@@ -8,6 +8,18 @@
       "esnext"
     ],
     "typeRoots": ["node_modules/@types", "src/typings/**/**"],
+    "rootDir": "./src",
+    "paths": {
+      "components": ["./components"],
+      "typings": ["./typings"],
+      "utils": ["./utils"],
+      "stores": ["./stores"],
+      "config": ["./config"],
+      "constants": ["./constants"],
+      "selector": ["./selector"],
+      "pages": ["./pages"],
+      "assets": ["./assets"]
+    },
     "jsx": "react",
     "noEmit": true,
     "strict": true,

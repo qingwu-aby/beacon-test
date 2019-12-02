@@ -1,22 +1,16 @@
 import React from 'react';
-import style from './style.module.scss';
+import { Switch, Route } from 'react-router-dom'
+import { menuList } from 'components/menu'
+
 const App: React.FC = () => {
   return (
-    <div className={style.app}>
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      {
+        menuList.map((item, index) => {
+          return item.comp
+        })
+      }
+    </Switch>
   );
 }
 

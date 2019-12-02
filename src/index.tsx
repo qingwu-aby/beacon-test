@@ -6,7 +6,8 @@ import enhancer from './enhancer';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import 'assets/scss/index.scss'
+import 'assets/scss/index.scss';
+import 'assets/fonts/iconfont.css';
 
 ReactDOM.render(
   <BrowserRouter>
