@@ -1,8 +1,8 @@
 import React from 'react';
-
+import style from './style.module.scss';
 const App: React.FC = () => {
   return (
-    <div className="App" style={{width: '200px'}}>
+    <div className={style.app}>
       <header className="App-header">
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
