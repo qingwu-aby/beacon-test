@@ -2,7 +2,7 @@ import React from 'react';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className="App" style={{width: '200px'}}>
       <header className="App-header">
         <p>
           Edit <code>src/App.tsx</code> and save to reload.

@@ -6,7 +6,6 @@ import enhancer from './enhancer';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import 'assets/scss/function.scss'
 import 'assets/scss/index.scss'
 
 ReactDOM.render(
