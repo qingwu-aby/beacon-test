@@ -17,12 +17,12 @@ export const menuList: Array<TMenu> = [
     icon: 'icon-tab-home',
     activeIcon: 'icon-tab-home-active',
     label: '首页',
-    link: '/home',
+    link: '/',
     comp: Home
   },
   {
     icon: 'icon-tab-search',
-    activeIcon: 'icon-tan-search-active',
+    activeIcon: 'icon-tab-search-active',
     label: '搜索',
     link: '/search',
     comp: Search

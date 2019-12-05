@@ -1,17 +1,15 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom'
-import { menuList } from 'components/menu'
+import { Switch, Route } from 'react-router-dom';
+import TabBar from 'components/TabBar';
+import style from './app.module.scss';
 
-const App: React.FC = () => {
-  return (
-    <Switch>
-      {
-        menuList.map((item, index) => {
-          return item.comp
-        })
-      }
-    </Switch>
-  );
-}
+const App: React.FC = () => <div className={style.app}>
+  <Switch>
+    <Route
+      path="/"
+      component={TabBar}
+    />
+  </Switch>
+</div>
 
 export default App;

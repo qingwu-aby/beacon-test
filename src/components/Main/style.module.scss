@@ -1,0 +1,7 @@
+$prefix-cls: 'mall-main';
+
+.#{$prefix-cls} {
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+  font-size: 14px;
+}
