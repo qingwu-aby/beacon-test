@@ -1,6 +1,6 @@
 {
-  "id": "189257",
-  "name": "Phoenix",
+  "id": "1548161",
+  "name": "test",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
@@ -18,6 +18,20 @@
       "font_class": "goumai1",
       "unicode": "e75c",
       "unicode_decimal": 59228
+    },
+    {
+      "icon_id": "1493291",
+      "name": "cart_light",
+      "font_class": "cart_light",
+      "unicode": "e894",
+      "unicode_decimal": 59540
+    },
+    {
+      "icon_id": "1493653",
+      "name": "cart_fill_light",
+      "font_class": "cart_fill_light",
+      "unicode": "e895",
+      "unicode_decimal": 59541
     },
     {
       "icon_id": "1576469",
@@ -4584,48 +4598,6 @@
       "unicode_decimal": 59539
     },
     {
-      "icon_id": "9797112",
-      "name": "好友_短信",
-      "font_class": "haoyou_duanxin",
-      "unicode": "e894",
-      "unicode_decimal": 59540
-    },
-    {
-      "icon_id": "9844363",
-      "name": "订单快照空态",
-      "font_class": "dingdankuaizhaokongtai",
-      "unicode": "e895",
-      "unicode_decimal": 59541
-    },
-    {
-      "icon_id": "9880906",
-      "name": "零食街-箭头",
-      "font_class": "lingshijie-jiantou",
-      "unicode": "e898",
-      "unicode_decimal": 59544
-    },
-    {
-      "icon_id": "9882063",
-      "name": "零食街-按住",
-      "font_class": "lingshijie-anzhu",
-      "unicode": "e896",
-      "unicode_decimal": 59542
-    },
-    {
-      "icon_id": "9882070",
-      "name": "零食街-勾",
-      "font_class": "lingshijie-gou",
-      "unicode": "e897",
-      "unicode_decimal": 59543
-    },
-    {
-      "icon_id": "9882164",
-      "name": "零食街-小箭头",
-      "font_class": "lingshijie-xiaojiantou",
-      "unicode": "e899",
-      "unicode_decimal": 59545
-    },
-    {
       "icon_id": "9911231",
       "name": "店铺-收藏选中",
       "font_class": "dianpu-shoucangxuanzhong",
@@ -4673,90 +4645,6 @@
       "font_class": "V",
       "unicode": "e8a0",
       "unicode_decimal": 59552
-    },
-    {
-      "icon_id": "9918805",
-      "name": "企业专场输入中取消按钮",
-      "font_class": "shuruzhongquxiaoanniu",
-      "unicode": "e8a1",
-      "unicode_decimal": 59553
-    },
-    {
-      "icon_id": "9920349",
-      "name": "企业专场卡片上拉提示",
-      "font_class": "kapianshanglatishi",
-      "unicode": "e8a2",
-      "unicode_decimal": 59554
-    },
-    {
-      "icon_id": "9920389",
-      "name": "企业专场海量商品",
-      "font_class": "hailiangshangpin",
-      "unicode": "e8a3",
-      "unicode_decimal": 59555
-    },
-    {
-      "icon_id": "9920397",
-      "name": "企业专场专供商品",
-      "font_class": "zhuangongshangpin",
-      "unicode": "e8a4",
-      "unicode_decimal": 59556
-    },
-    {
-      "icon_id": "9920402",
-      "name": "企业专场双倍补贴",
-      "font_class": "shuangbeibutie",
-      "unicode": "e8a5",
-      "unicode_decimal": 59557
-    },
-    {
-      "icon_id": "9920404",
-      "name": "企业专场专属客服",
-      "font_class": "zhuanshukefu",
-      "unicode": "e8a6",
-      "unicode_decimal": 59558
-    },
-    {
-      "icon_id": "9920405",
-      "name": "企业专场查看金卡按钮",
-      "font_class": "jinkaanniu",
-      "unicode": "e8a7",
-      "unicode_decimal": 59559
-    },
-    {
-      "icon_id": "9920411",
-      "name": "企业专场查看银卡按钮",
-      "font_class": "yinkaanniu",
-      "unicode": "e8a8",
-      "unicode_decimal": 59560
-    },
-    {
-      "icon_id": "9920414",
-      "name": "企业专场取消弹窗按钮",
-      "font_class": "quxiaodanchuanganniu",
-      "unicode": "e8a9",
-      "unicode_decimal": 59561
-    },
-    {
-      "icon_id": "9920416",
-      "name": "企业专场金卡专区进入按钮",
-      "font_class": "jinkazhuanqujinruanniu",
-      "unicode": "e8aa",
-      "unicode_decimal": 59562
-    },
-    {
-      "icon_id": "9920418",
-      "name": "企业专场买贵必赔",
-      "font_class": "maiguibipei",
-      "unicode": "e8ab",
-      "unicode_decimal": 59563
-    },
-    {
-      "icon_id": "9926976",
-      "name": "零食站-扭蛋关闭",
-      "font_class": "lingshizhan-niudanguanbi",
-      "unicode": "e8ac",
-      "unicode_decimal": 59564
     },
     {
       "icon_id": "9953042",
@@ -4983,13 +4871,6 @@
       "unicode_decimal": 59591
     },
     {
-      "icon_id": "10944788",
-      "name": "空态-拼小圈提醒",
-      "font_class": "xingzhuangjiehe1",
-      "unicode": "e8c8",
-      "unicode_decimal": 59592
-    },
-    {
       "icon_id": "10953273",
       "name": "火车票-身份证",
       "font_class": "huochepiao-shenfenzheng",
@@ -5158,13 +5039,6 @@
       "unicode_decimal": 59615
     },
     {
-      "icon_id": "11749578",
-      "name": "explain_ic_gift",
-      "font_class": "explain_ic_gift",
-      "unicode": "e8e0",
-      "unicode_decimal": 59616
-    },
-    {
       "icon_id": "11835087",
       "name": "icon-微信绑定",
       "font_class": "icon-weixinbangding",
@@ -5228,13 +5102,6 @@
       "unicode_decimal": 59626
     },
     {
-      "icon_id": "11954439",
-      "name": "kuaniankongtai",
-      "font_class": "kuaniankongtai",
-      "unicode": "e8ec",
-      "unicode_decimal": 59628
-    },
-    {
       "icon_id": "11974928",
       "name": "闹钟-01",
       "font_class": "naozhong-",
@@ -5282,6 +5149,34 @@
       "font_class": "yuanqiangpiao",
       "unicode": "e8f1",
       "unicode_decimal": 59633
+    },
+    {
+      "icon_id": "12091419",
+      "name": "close",
+      "font_class": "close-copy",
+      "unicode": "e8f2",
+      "unicode_decimal": 59634
+    },
+    {
+      "icon_id": "12128595",
+      "name": "pxq_分享",
+      "font_class": "pxq_fenxiang",
+      "unicode": "e8f3",
+      "unicode_decimal": 59635
+    },
+    {
+      "icon_id": "12128596",
+      "name": "pxq_扫一扫",
+      "font_class": "pxq_saoyisao",
+      "unicode": "e8f4",
+      "unicode_decimal": 59636
+    },
+    {
+      "icon_id": "12128597",
+      "name": "pxq_存图",
+      "font_class": "pxq_cuntu",
+      "unicode": "e8f5",
+      "unicode_decimal": 59637
     }
   ]
 }

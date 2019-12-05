@@ -2,6 +2,7 @@ import { ComponentClass, FC, SFC } from 'react';
 import Home from 'pages/Home';
 import Recommend from 'pages/Recommend';
 import Search from 'pages/Search';
+import Cart from 'pages/Cart';
 import Personal from 'pages/Personal';
 
 type TMenu = {
@@ -33,6 +34,13 @@ export const menuList: Array<TMenu> = [
     label: '推荐',
     link: '/recommend',
     comp: Recommend
+  },
+  {
+    icon: 'icon-cart_light',
+    activeIcon: 'icon-cart_fill_light',
+    label: '购物车',
+    link: '/cart',
+    comp: Cart
   },
   {
     icon: 'icon-tab-mine',
