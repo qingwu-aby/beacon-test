@@ -1,6 +1,11 @@
 const initState = {
   goods: {},
-  personal: {}
+  personal: {},
+  auth: {
+    msg: '',
+    code: '',
+    data: null
+  },
 }
 
 const store = (state = initState) => {

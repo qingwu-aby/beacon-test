@@ -1,24 +1,26 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
     "target": "es5",
+    "baseUrl": "./src",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "typeRoots": ["node_modules/@types", "src/typings/**/**"],
     "rootDir": "./src",
+    "typeRoots": ["node_modules/@types", "src/typings/**/**"],
     "paths": {
-      "components": ["./components"],
-      "typings": ["./typings"],
       "utils": ["./utils"],
+      "pages": ["./pages"],
       "stores": ["./stores"],
       "config": ["./config"],
-      "constants": ["./constants"],
+      "routes": ["./routes"],
+      "assets": ["./assets"],
+      "layouts": ["./layouts"],
+      "typings": ["./typings"],
       "selector": ["./selector"],
-      "pages": ["./pages"],
-      "assets": ["./assets"]
+      "constants": ["./constants"],
+      "components": ["./components"]
     },
     "jsx": "react",
     "noEmit": true,
@@ -30,6 +32,7 @@
     "isolatedModules": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
+    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true
   },

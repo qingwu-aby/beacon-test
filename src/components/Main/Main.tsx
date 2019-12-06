@@ -8,6 +8,11 @@ const prefixCls = 'mall-main';
 
 const Main: React.SFC<{}> = () => <div className={style[prefixCls]}>
   <Switch>
+    <Route
+      exact={true}
+      path="/"
+      component={Home}
+    />
     {
       menuList.map((item, index) => <Route
         path={item.link}

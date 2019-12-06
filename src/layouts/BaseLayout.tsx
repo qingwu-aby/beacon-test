@@ -1,0 +1,20 @@
+import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import MainLayout from 'layouts/MainLayout';
+import Login from 'pages/Login';
+
+const BaseLayout: React.SFC = () => <Switch>
+    <Route path='/home' component={MainLayout}/>
+    <Route
+      path='/login'
+      exact
+      component={Login}
+    />
+    <Redirect
+      exact
+      from='/'
+      to='/home'
+    />
+</Switch>
+
+export default BaseLayout;

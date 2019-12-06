@@ -1,7 +1,10 @@
 import React from 'react';
+import Category from 'components/Category';
 
-const Search:React.FC = () => {
-  return <div>Search</div>
+const Search: React.FC = () => {
+  return <section>
+    <Category />
+  </section>
 }
 
 export default Search;
