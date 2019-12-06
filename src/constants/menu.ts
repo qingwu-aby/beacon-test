@@ -28,13 +28,13 @@ export const menuList: Array<TMenu> = [
     link: '/search',
     comp: Search
   },
-  {
-    icon: 'icon-tab-new',
-    activeIcon: 'icon-tab-new-active',
-    label: '推荐',
-    link: '/recommend',
-    comp: Recommend
-  },
+  // {
+  //   icon: 'icon-tab-new',
+  //   activeIcon: 'icon-tab-new-active',
+  //   label: '推荐',
+  //   link: '/recommend',
+  //   comp: Recommend
+  // },
   {
     icon: 'icon-cart_light',
     activeIcon: 'icon-cart_fill_light',
