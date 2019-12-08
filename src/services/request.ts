@@ -5,7 +5,7 @@ const get = (url: string, params: any) => {
     params,
     headers: {}
   })
-  .then(res => {})
+  .then(res => res)
   .catch(errorHandler)
 };
 
@@ -15,7 +15,7 @@ const post = (url: string, params: any, data: any) => {
     data,
     headers: {}
   })
-  .then(res => {})
+  .then(res => res)
   .catch(errorHandler)
 };
 
@@ -25,7 +25,7 @@ const fetch = (url: string, params: any, data: any) => {
     data,
     headers: {}
   })
-  .then(res => {})
+  .then(res => res)
   .catch(errorHandler)
 };
 

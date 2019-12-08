@@ -1,9 +1,9 @@
-const initState = {
+const initState: State.IStore = {
   goods: {},
   personal: {},
   auth: {
     msg: '',
-    code: '',
+    code: -1,
     data: null
   },
 }
