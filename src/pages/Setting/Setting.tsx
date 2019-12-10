@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 const Setting: React.SFC = () => {
   return <div>Setting</div>

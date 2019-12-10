@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Main from 'components/Main'
 import { menuList } from 'constants/menu'

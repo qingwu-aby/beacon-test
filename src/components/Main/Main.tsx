@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from 'pages/Home'
 import { menuList } from 'constants/menu'

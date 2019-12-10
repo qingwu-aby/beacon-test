@@ -1,5 +1,38 @@
 $prefix-cls: 'mall-login';
 
 .#{$prefix-cls} {
+  position: relative;
 
+  %layouts {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &-form {
+    @extend %layouts;
+    height: 50vh;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-input {
+    height: 44px;
+    border-bottom: 1px solid rgba(0, 0, 0, .6);
+  }
+
+  &-phone {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    > button {
+      position: absolute;
+      right: 0;
+      display: inline-block;
+    }
+  }
+
+  &-footer {
+    @extend %layouts;
+  }
 }

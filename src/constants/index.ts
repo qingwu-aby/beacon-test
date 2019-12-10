@@ -1,1 +1,3 @@
-export const LOGIN_TIPS: string = '未注册手机号验证后将自动创建账户。';
+export const LOGIN_TIPS: string = 'XXXXXXXXXXXXXXXXX';
+export const PHONE_REG: string = '/^1[3456789]\d{9}$/';
+export const NUM_REG: string = '[0-9]';
