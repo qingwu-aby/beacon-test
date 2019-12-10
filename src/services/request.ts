@@ -1,4 +1,5 @@
 import Qs from 'qs';
+import { Toast } from 'antd-mobile';
 
 export enum ContentType {
   json = 'application/json;charset=UTF-8',
@@ -38,16 +39,25 @@ const fetchReq = ({
     fetch(url, {
       method: method ? method : 'GET',
       headers: {
+        'Host': 'm.intelldevel.com',
+        'Content-type': 'application/json;charset=UTF-8',
         // 'Content-Type': ContentType.json,
         ...headers,
       },
       body: JSON.stringify(data),
-    }).then(res => resolve(res.json()))
-      .catch(err => reject({
-        ...err,
-        code: -1,
-        msg: 'err'
-      }));
+    })
+    .then(resData => resData.json())
+    .then(res => resolve({
+        data: res.data,
+        serverTime: res.t || Date.now(),
+        code: res.code,
+        msg: res.msg || 'success'
+    }))
+    .catch(err => reject({
+      ...err,
+      code: -1,
+      msg: 'err'
+    }));
   })
 }
 

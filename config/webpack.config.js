@@ -105,14 +105,14 @@ module.exports = function(webpackEnv) {
           plugins: () => [
             px2rem({
                 unitToConvert: 'px',
-                viewportWidth: 750,
+                viewportWidth: 375,
                 unitPrecision: 5,
                 propList: ['*'],
                 viewportUnit: 'vw',
                 fontViewportUnit: 'vw',
                 selectorBlackList: [],
                 minPixelValue: 1,
-                mediaQuery: false,
+                mediaQuery: true,
                 replace: true,
                 exclude: /node_modules/i,
                 landscape: false,

@@ -4,10 +4,46 @@ const sendSMSModel = (opts: any) => {
   return fetchReq({
     method: 'POST',
     url: '/user/sendSMSVerify',
-    headers: {
-      'Host': 'm.intelldevel.com',
-      'Content-type': 'application/json;charset=UTF-8',
-    },
+    data: {
+      ...opts
+    }
+  })
+}
+
+const logoutModel = (opts: any) => {
+  return fetchReq({
+    method: 'POST',
+    url: '/url/logout',
+    data: {
+      ...opts
+    }
+  })
+}
+
+const fastLoginModel = (opts: any) => {
+  return fetchReq({
+    method: 'POST',
+    url: '/url/fastLogin',
+    data: {
+      ...opts
+    }
+  })
+}
+
+const wechatLoginModel = (opts: any) => {
+  return fetchReq({
+    method: 'POST',
+    url: '/url/wxH5Login',
+    data: {
+      ...opts
+    }
+  })
+}
+
+const bindPhoneModel = (opts: any) => {
+  return fetchReq({
+    method: 'POST',
+    url: '/url/wxBindPhone',
     data: {
       ...opts
     }
@@ -15,5 +51,9 @@ const sendSMSModel = (opts: any) => {
 }
 
 export {
-  sendSMSModel
+  logoutModel,
+  sendSMSModel,
+  fastLoginModel,
+  wechatLoginModel,
+  bindPhoneModel
 }

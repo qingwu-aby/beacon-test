@@ -1,0 +1,57 @@
+import { createActions } from 'redux-actions';
+import { takeLatest, call, put } from 'redux-saga/effects';
+import { getGoodsModel } from 'services/goods';
+
+const REQ_SUCCESS = 0;
+export const {
+  goods: {
+    getGoodsReq,
+    getGoodsReqSuccess,
+    getGoodsReqFailed,
+  }
+}: any = createActions({
+  GOODS: {
+    GET_GOODS_REQ: null,
+    GET_GOODS_REQ_SUCCESS: goods => goods,
+    GET_GOODS_REQ_FAILED: null
+  }
+})
+
+function* getGoodsReqSaga({ payload }) {
+  try {
+    const res = yield call(getGoodsModel, {
+      ...payload
+    });
+    if (res.code !== REQ_SUCCESS) {
+      console.error(res.msg)
+    } else {
+      yield put(getGoodsReqSuccess({goods: res}));
+    }
+  } catch (err) {
+    yield put(getGoodsReqFailed(err));
+  }
+}
+
+export function* watchGetGoods() {
+  yield takeLatest(getGoodsReq, getGoodsReqSaga)
+}
+
+export const watchGoods = [watchGetGoods];
+
+export default {
+  [getGoodsReqSuccess]: (state, { payload: { goods } }) => ({
+    ...state,
+    goods: {
+      ...goods,
+      status: 'complete'
+    },
+    loading: false
+  }),
+  [getGoodsReqFailed]: (state, { payload: { goods } }) => ({
+    ...state,
+    goods: {
+      ...goods,
+      status: 'failed'
+    }
+  })
+}

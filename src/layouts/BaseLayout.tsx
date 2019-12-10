@@ -12,7 +12,7 @@ const BaseLayout: React.SFC = () => <Switch>
       component={Login}
     />
     <Route
-      path='/goods'
+      path='/goods/:itemId'
       exact
       component={Goods}
     />

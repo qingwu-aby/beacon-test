@@ -1,30 +1,38 @@
-import { createActions, combineActions } from 'redux-actions';
+import { createActions } from 'redux-actions';
 import { takeLatest, call, put } from 'redux-saga/effects';
-import { sendSMSModel } from 'services/auth';
+import { sendSMSModel, fastLoginModel } from 'services/auth';
 
+const REQ_SUCCESS = 0;
 export const {
   auth: {
     smsVerifyReq,
     smsVerifySuccess,
-    smsVerifyFailed
+    smsVerifyFailed,
+    fastLoginReq,
+    fastLoginSuccess,
+    fastLoginFailed
   }
 }: any = createActions({
   AUTH: {
     SMS_VERIFY_REQ: null,
     SMS_VERIFY_SUCCESS: auth => auth,
     SMS_VERIFY_FAILED: null,
+    FAST_LOGIN_REQ: null,
+    FAST_LOGIN_REQ_SUCCESS: auth => auth,
+    FAST_LOGIN_REQ_FAILED: null,
   }
 })
 
 function* smsVerifySaga({ payload }) {
   try {
     const res = yield call(sendSMSModel, {
-      body: {
-        ...payload
-      }
+      ...payload
     });
-    console.log('====res', res);
-    yield put(smsVerifySuccess(res));
+    if (res.code !== REQ_SUCCESS) {
+      console.error(res.msg)
+    } else {
+      yield put(smsVerifySuccess({auth: res}));
+    }
   } catch (err) {
     yield put(smsVerifyFailed(err));
   }
@@ -34,15 +42,56 @@ export function* watchSendSmsVerify() {
   yield takeLatest(smsVerifyReq, smsVerifySaga)
 }
 
-export const watchAuth = [watchSendSmsVerify];
+function* fastLoginReqSaga({ payload }) {
+  try {
+    const res = yield call(fastLoginModel, {
+      ...payload
+    });
+    if (res.code !== REQ_SUCCESS) {
+      console.error(res.msg)
+    } else {
+      yield put(fastLoginSuccess({auth: res}));
+    }
+  } catch (err) {
+    yield put(fastLoginFailed(err));
+  }
+}
+
+export function* watchFastLogin() {
+  yield takeLatest(fastLoginReq, fastLoginReqSaga)
+}
+
+export const watchAuth = [watchSendSmsVerify, watchFastLogin];
 
 export default {
-  [smsVerifySuccess]: (state, { payload }) => ({
-    sms: payload,
+  [smsVerifySuccess]: (state, { payload: { auth } }) => ({
+    ...state,
+    auth: {
+      ...auth,
+      status: 'complete'
+    },
     loading: false
   }),
-  [smsVerifyFailed]: (state) => ({
+  [smsVerifyFailed]: (state, { payload: { auth } }) => ({
     ...state,
+    auth: {
+      ...auth,
+      status: 'failed'
+    }
+  }),
+  [fastLoginSuccess]: (state, { payload: { auth } }) => ({
+    ...state,
+    auth: {
+      ...auth,
+      status: 'complete'
+    },
     loading: false
-  })
+  }),
+  [fastLoginFailed]: (state, { payload: { auth } }) => ({
+    ...state,
+    auth: {
+      ...auth,
+      status: 'failed'
+    }
+  }),
 }
