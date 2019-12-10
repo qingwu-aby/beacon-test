@@ -8,9 +8,13 @@ $prefix-cls: 'mall-login';
     justify-content: space-around;
   }
 
+  &-wrapper {
+    margin-top: 20vh;
+  }
+
   &-form {
     @extend %layouts;
-    height: 50vh;
+    height: 40vh;
     flex-direction: column;
     align-items: center;
   }
@@ -34,5 +38,26 @@ $prefix-cls: 'mall-login';
 
   &-footer {
     @extend %layouts;
+    margin-top: 25vh;
+    
+    &-wrapper {
+      text-align: center;
+      display: block;
+      width: 90%;
+      margin: 0 auto;
+      border-top: 1px solid rgba(0, 0, 0, .3);
+
+      > span {
+        display: inline-block;
+        margin-top: 15px;
+        color: #1AAD19;
+        font-size: 20px;
+      }
+
+      > p {
+        margin-top: 10px;
+        color: rgba(96, 61, 48, 1);
+      }
+    }    
   }
 }

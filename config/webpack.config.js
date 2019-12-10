@@ -105,7 +105,7 @@ module.exports = function(webpackEnv) {
           plugins: () => [
             px2rem({
                 unitToConvert: 'px',
-                viewportWidth: 375,
+                viewportWidth: 750,
                 unitPrecision: 5,
                 propList: ['*'],
                 viewportUnit: 'vw',

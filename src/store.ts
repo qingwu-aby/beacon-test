@@ -1,15 +1,26 @@
-const initState: State.IStore = {
-  goods: {},
-  personal: {},
-  auth: {
-    msg: '',
-    code: -1,
-    data: null
-  },
-}
+import {
+  compose,
+  createStore,
+  combineReducers,
+  applyMiddleware
+} from 'redux';
 
-const store = (state = initState) => {
-  return state
+import { reducers, sagas } from 'store/index';
+import createSagaMiddleware from 'redux-saga'
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
 }
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const sagaMiddleware = createSagaMiddleware()
+const middlewares = [sagaMiddleware];
+const store = createStore(
+  combineReducers(reducers),
+  composeEnhancers(applyMiddleware(...middlewares))
+)
+sagaMiddleware.run(sagas)
 
-export default store;
+export {
+  store as default
+}

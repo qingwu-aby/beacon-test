@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom';
-import enhancer from './enhancer';
+import store from './store';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -11,7 +11,7 @@ import 'assets/fonts/iconfont.css';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Provider store={enhancer}>
+    <Provider store={store}>
       <App />
     </Provider>
   </BrowserRouter>,

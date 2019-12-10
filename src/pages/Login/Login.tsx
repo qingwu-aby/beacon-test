@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { LOGIN_TIPS, NUM_REG } from 'constants/index';
 import { TextInput, Button, CountDown } from 'components/common';
-
+import { smsVerifyReq } from 'store/auth/auth';
 import style from './style.module.scss';
 
 const prefixCls = 'mall-login';
-const Login: React.SFC<Login.IAuth> = ({ auth }) => {
+const Login: React.SFC<Login.IAuth> = ({ smsVerifyReq }) => {
   return <div className={style[prefixCls]}>
     <div className={style[`${prefixCls}-wrapper`]}>
       <div className={style[`${prefixCls}-form`]}>
@@ -18,7 +18,7 @@ const Login: React.SFC<Login.IAuth> = ({ auth }) => {
             clsName={style[`${prefixCls}-input`]}
             title="输入正确的手机号码"
           />
-          <CountDown />
+          <CountDown smsVerifyReq={smsVerifyReq}/>
         </div>
         <TextInput
           pattern={NUM_REG}
@@ -33,13 +33,18 @@ const Login: React.SFC<Login.IAuth> = ({ auth }) => {
         />
       </div>
       <div className={style[`${prefixCls}-footer`]}>
-        {LOGIN_TIPS}
+        <div className={style[`${prefixCls}-footer-wrapper`]}>
+          <span className="iconfont icon-wechat" />
+          <p>{LOGIN_TIPS}</p>
+        </div>
       </div>
     </div>
   </div>
 }
 
 
-export default connect((state: State.IStore) => ({
+export default connect((state: any) => ({
   auth: state.auth,
-}))(Login);
+}), {
+  smsVerifyReq
+})(Login);

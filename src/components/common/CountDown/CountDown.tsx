@@ -4,7 +4,13 @@ import useCountDown from './useCountDown';
 import style from './style.module.scss';
 const prefixCls = 'mall-common-countdown';
 
-const CountDown: React.SFC = () => {
+interface IProps {
+  smsVerifyReq: () => {}
+}
+
+const CountDown: React.SFC<IProps> = ({
+  smsVerifyReq
+}) => {
   const {
     timerStart,
     isLoading,
@@ -13,7 +19,8 @@ const CountDown: React.SFC = () => {
   } = useCountDown({
     btnText: '获取验证码',
     isLoading: false,
-    totalSecond: 60
+    totalSecond: 60,
+    smsVerifyReq
   });
   return <button
     disabled={isLoading}

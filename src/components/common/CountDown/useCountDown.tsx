@@ -4,12 +4,12 @@ import React, {
   useEffect,
   useCallback
 } from 'react';
-import { sendSMSModel } from 'services/auth';
 
 interface IProps {
   isLoading: boolean;
   btnText: string;
   totalSecond: number;
+  smsVerifyReq: (T) => {};
 }
 
 interface IOpts {
@@ -56,7 +56,7 @@ const useCountDown = (initState: IProps) => {
     const opts = {
       phone: '17600667952'
     }
-    sendSMSModel(opts)
+    initState.smsVerifyReq(opts)
     if (isLoading) {
       return;
     }

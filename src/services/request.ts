@@ -42,22 +42,12 @@ const fetchReq = ({
         ...headers,
       },
       body: JSON.stringify(data),
-    })
-      .then(resData => resData.json())
-      .then(res => {
-        return resolve({
-        ...res,
-        code: 1,
-        msg: 'success'
-      })
-    })
-      .catch(err => {
-        return resolve({
-          ...err,
-          code: -1,
-          msg: 'err'
-        })
-      });
+    }).then(res => resolve(res.json()))
+      .catch(err => reject({
+        ...err,
+        code: -1,
+        msg: 'err'
+      }));
   })
 }
 

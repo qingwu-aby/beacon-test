@@ -5,6 +5,7 @@ const sendSMSModel = (opts: any) => {
     method: 'POST',
     url: '/user/sendSMSVerify',
     headers: {
+      'Host': 'm.intelldevel.com',
       'Content-type': 'application/json;charset=UTF-8',
     },
     data: {
