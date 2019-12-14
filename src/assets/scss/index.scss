@@ -3,7 +3,8 @@ $baseFont: 14;
 $maxWidth: 600;
 $minWidth: 320;
 $baseColor: rgba(238, 160, 140, 1);
-
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 html {
   font-size: $baseFont + px;
   margin: 0 auto;

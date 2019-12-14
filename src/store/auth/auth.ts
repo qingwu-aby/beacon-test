@@ -1,5 +1,6 @@
 import { createActions } from 'redux-actions';
 import { takeLatest, call, put } from 'redux-saga/effects';
+import showToast from 'components/common/Toast';
 import { sendSMSModel, fastLoginModel } from 'services/auth';
 
 const REQ_SUCCESS = 0;
@@ -29,7 +30,12 @@ function* smsVerifySaga({ payload }) {
       ...payload
     });
     if (res.code !== REQ_SUCCESS) {
-      console.error(res.msg)
+      const opts = {
+        duration: 4,
+        iconCls: "icon-cards_museum_cancel",
+        message: res.msg
+      }
+      showToast(opts);
     } else {
       yield put(smsVerifySuccess({auth: res}));
     }
@@ -48,7 +54,12 @@ function* fastLoginReqSaga({ payload }) {
       ...payload
     });
     if (res.code !== REQ_SUCCESS) {
-      console.error(res.msg)
+      const opts = {
+        duration: 4,
+        iconCls: "icon-cards_museum_cancel",
+        message: res.msg
+      }
+      showToast(opts);
     } else {
       yield put(fastLoginSuccess({auth: res}));
     }

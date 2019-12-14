@@ -1,5 +1,5 @@
 import Qs from 'qs';
-import { Toast } from 'antd-mobile';
+import camelCase from 'camelcase';
 
 export enum ContentType {
   json = 'application/json;charset=UTF-8',
@@ -16,7 +16,7 @@ type TReq = {
   url: string,
   data?: object,
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE',
-  params?: string,
+  params?: object,
   headers?: any,
   AccessToken?: string,
 }

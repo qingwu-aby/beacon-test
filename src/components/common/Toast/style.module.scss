@@ -1,0 +1,56 @@
+$prefix-cls: 'mall-common-toast';
+
+.#{$prefix-cls} {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 6px;
+  width: 145px;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 999;
+  text-align: center;
+
+  &-leave {
+    animation: show 0.5s forwards;
+  }
+
+  &-enter {
+    animation: show 0.5s forwards;
+  }
+
+  &-msg {
+    max-width: 100%;
+    font-size: 14px;
+    color: #fff;
+  }
+
+  &-icon {
+    color: #f2f2f2;
+    font-size: 26px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  @keyframes showToast {
+    0% {
+      opacity: 0
+    }
+    100% {
+      opacity: 1
+    }
+  }
+
+  @keyframes hideToast {
+    0% {
+      opacity: 1
+    }
+    100% {
+      opacity: 0
+    }
+  }
+}

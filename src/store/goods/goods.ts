@@ -1,5 +1,7 @@
+import React from 'react';
 import { createActions } from 'redux-actions';
 import { takeLatest, call, put } from 'redux-saga/effects';
+import showToast from 'components/common/Toast';
 import { getGoodsModel } from 'services/goods';
 
 const REQ_SUCCESS = 0;
@@ -23,7 +25,12 @@ function* getGoodsReqSaga({ payload }) {
       ...payload
     });
     if (res.code !== REQ_SUCCESS) {
-      console.error(res.msg)
+      const opts = {
+        duration: 4,
+        iconCls: "icon-cards_museum_cancel",
+        message: res.msg
+      }
+      showToast(opts);
     } else {
       yield put(getGoodsReqSuccess({goods: res}));
     }

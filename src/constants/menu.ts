@@ -1,9 +1,10 @@
-import { ComponentClass, FC, SFC } from 'react';
-import Home from 'pages/Home';
-import Recommend from 'pages/Recommend';
-import Search from 'pages/Search';
-import Cart from 'pages/Cart';
-import Personal from 'pages/Personal';
+import { lazy, ComponentClass, FC, SFC } from 'react';
+const Home = lazy(() => import('pages/Home'));
+// @todo 暂不启用
+// const Recommend = lazy(() => import('pages/Recommend'));
+const Search = lazy(() => import('pages/Search'));
+const Cart = lazy(() => import('pages/Cart'));
+const Personal = lazy(() => import('pages/Personal'));
 
 type TMenu = {
     icon?: string,

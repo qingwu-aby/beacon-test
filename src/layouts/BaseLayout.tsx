@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import MainLayout from 'layouts/MainLayout';
-import Login from 'pages/Login';
-import Goods from 'pages/Goods';
+import Loading from 'components/Loading';
+const Login = lazy(() => import('pages/Login'));
+const Goods = lazy(() => import('pages/Goods'));
 
-const BaseLayout: React.SFC = () => <Switch>
+const BaseLayout: React.SFC = () => <Suspense fallback={<Loading />}>
+  <Switch>
     <Route path='/home' component={MainLayout}/>
     <Route
       path='/login'
@@ -21,6 +23,7 @@ const BaseLayout: React.SFC = () => <Switch>
       from='/'
       to='/home'
     />
-</Switch>
+  </Switch>
+</Suspense>
 
 export default BaseLayout;
