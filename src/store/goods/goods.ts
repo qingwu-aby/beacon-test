@@ -1,4 +1,3 @@
-import React from 'react';
 import { createActions } from 'redux-actions';
 import { takeLatest, call, put } from 'redux-saga/effects';
 import showToast from 'components/common/Toast';

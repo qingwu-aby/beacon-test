@@ -54,7 +54,6 @@ export class Toast extends React.PureComponent<IProps, IState> {
     } = this.props;
 
     const { isShow } = this.state;
-    console.log(isShow)
     return isShow && ReactDOM.createPortal(
       <Modal
         unMount={unMount}

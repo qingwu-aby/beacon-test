@@ -2,19 +2,18 @@ import React, { useState } from 'react';
 import Slide from 'react-slick';
 import style from './style.module.scss';
 
+const prefixCls = 'mall-goods-slider';
 interface IProps {
   imgList: [];
-  slideCls: string;
 }
 const Slider: React.FC<IProps> = ({
-  imgList,
-  slideCls
+  imgList
 }) => {
   const [slideIndex, setSlideIndex] = useState(1);
   const settings = {
     dots: true,
-    className: `${slideCls}`,
-    dotsClass: `${slideCls}-dots`,
+    className: style[`${prefixCls}`],
+    dotsClass: style[`${prefixCls}-dots`],
     appendDots: dots => <div>{`${slideIndex} / ${dots.length}`} </div>,
     afterChange: () => setSlideIndex(slideIndex%imgList.length + 1),
     lazyLoad: true,
@@ -28,7 +27,7 @@ const Slider: React.FC<IProps> = ({
   return <Slide {...settings}>
     {
       imgList.map((item, index) => <img
-        className={style[`${slideCls}-img`]}
+        className={style[`${prefixCls}-img`]}
         src={item}
         key={index}
       />)

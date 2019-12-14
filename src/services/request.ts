@@ -1,5 +1,4 @@
 import Qs from 'qs';
-import camelCase from 'camelcase';
 
 export enum ContentType {
   json = 'application/json;charset=UTF-8',

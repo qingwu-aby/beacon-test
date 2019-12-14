@@ -2,6 +2,11 @@ import React, { useEffect, Suspense } from 'react';
 import { connect } from 'react-redux';
 
 import Slider from './Slider';
+import Description from './Description';
+import Summary from './Summary';
+import Comments from './Comments';
+import MallInfo from './MallInfo';
+import Detail from './Detail';
 import Loading from 'components/Loading';
 import { getGoodsReq } from 'store/goods/goods';
 
@@ -25,9 +30,13 @@ const Goods: React.SFC<IProps> = ({
   }, [])
   return <Suspense fallback={<Loading />}>
     {goods.data && <Slider
-      slideCls={`${prefixCls}-slider`}
       imgList={goods.data.head_img_list}
     />}
+    <Description />
+    <Summary />
+    <Comments />
+    <MallInfo />
+    <Detail />
   </Suspense>
 }
 

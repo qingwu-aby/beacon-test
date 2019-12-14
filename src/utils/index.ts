@@ -11,18 +11,3 @@ export const getQueryString = (name: string) => {
   }
   return null;
 }
-
-export const toCamel = param => {
-	if (typeof param === 'string') {
-		return camelCase(param)
-  } else if (param instanceof Object) {
-    return Object.keys(param).reduce((acc, key) => {
-      acc[camelCase(key)] = param[key];
-      return acc;
-    }, {});
-	} else if (param instanceof Array) {
-		return param.map(item => {
-      toCamel(item)
-    })
-	}
-}

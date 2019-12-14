@@ -22,16 +22,14 @@ const Modal: FC<{
 
   children = React.Children.only(children) as any
 
-  return (
-    React.cloneElement({
-      ...children,
-      props: {
-        ...children.props,
-        className: cn(children.props.className, modalClass),
-        onAnimationEnd: handleAnimationEnd
-      }
-    })
-  )
+  return ({
+    ...children,
+    props: {
+      ...children.props,
+      className: cn(children.props.className, modalClass),
+      onAnimationEnd: handleAnimationEnd
+    }
+  })
 }
 
 export default Modal
