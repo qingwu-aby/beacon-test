@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Slide from 'react-slick';
+import React, { useState, useEffect, useRef } from 'react';
 import style from './style.module.scss';
+import Swiper from 'react-image-gallery';
 
 const prefixCls = 'mall-goods-slider';
 interface IProps {
@@ -9,30 +9,37 @@ interface IProps {
 const Slider: React.FC<IProps> = ({
   imgList
 }) => {
-  const [slideIndex, setSlideIndex] = useState(1);
-  const settings = {
-    dots: true,
-    className: style[`${prefixCls}`],
-    dotsClass: style[`${prefixCls}-dots`],
-    appendDots: dots => <div>{`${slideIndex} / ${dots.length}`} </div>,
-    afterChange: () => setSlideIndex(slideIndex%imgList.length + 1),
-    lazyLoad: true,
+  const [itemList, setItemList] = useState([])
+  const config = {
+    showIndex: true,
+    showBullets: false,
     infinite: true,
-    autoplay: true,
-    autoplaySpeed: 500,
-    cssEase: "linear",
-    slidesToShow: 1,
-    slidesToScroll: 1
-  }
-  return <Slide {...settings}>
-    {
-      imgList.map((item, index) => <img
-        className={style[`${prefixCls}-img`]}
-        src={item}
-        key={index}
-      />)
-    }
-  </Slide>
+    showPlayButton: false,
+    showThumbnails: false,
+    showNav: false,
+    lazyLoad: true,
+    autoPlay: true,
+    slideDuration: 450,
+    slideInterval: 2000
+  };
+  const imageSwiper = useRef()
+  useEffect(() => {
+    const list = imgList.map(item => {
+      return {
+        original: item,
+        originalClass: style[`${prefixCls}-img`]
+      }
+    })
+    setItemList(list)
+  }, [imgList]);
+
+  return <div className={style[prefixCls]}>
+    <Swiper
+      ref={imageSwiper}
+      items={itemList}
+      {...config}
+    />
+  </div>
 }
 
 export default Slider;
