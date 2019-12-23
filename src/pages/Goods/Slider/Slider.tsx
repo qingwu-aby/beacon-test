@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import style from './style.module.scss';
+import './style.module.scss';
 import Swiper from 'react-image-gallery';
 
 const prefixCls = 'mall-goods-slider';
 interface IProps {
   imgList: [];
 }
+
 const Slider: React.FC<IProps> = ({
   imgList
 }) => {
@@ -20,20 +21,20 @@ const Slider: React.FC<IProps> = ({
     lazyLoad: true,
     autoPlay: true,
     slideDuration: 450,
-    slideInterval: 2000
+    slideInterval: 200000
   };
   const imageSwiper = useRef()
   useEffect(() => {
     const list = imgList.map(item => {
       return {
         original: item,
-        originalClass: style[`${prefixCls}-img`]
+        originalClass: `${prefixCls}-img`
       }
     })
     setItemList(list)
   }, [imgList]);
 
-  return <div className={style[prefixCls]}>
+  return <div className={prefixCls}>
     <Swiper
       ref={imageSwiper}
       items={itemList}

@@ -7,8 +7,9 @@ $baseColor: rgba(238, 160, 140, 1);
 
 html {
   font-size: $baseFont + px;
+  max-width: 750px;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: #f2f2f2;
   color: #000;
   height: 100%;
 }

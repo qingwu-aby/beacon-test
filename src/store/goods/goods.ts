@@ -32,7 +32,7 @@ function* getGoodsReqSaga({ payload }) {
       }
       showToast(opts);
     } else {
-      yield put(getGoodsReqSuccess({goods: res}));
+      yield put(getGoodsReqSuccess({goods: res.data}));
     }
   } catch (err) {
     yield put(getGoodsReqFailed(err));
@@ -43,20 +43,20 @@ export function* watchGetGoods() {
   yield takeLatest(getGoodsReq, getGoodsReqSaga)
 }
 
-export const watchGoods = [watchGetGoods];
+export const watchGoodsSagas = [watchGetGoods];
 
 export default {
   [getGoodsReqSuccess]: (state, { payload: { goods } }) => ({
-    ...state,
-    goods: {
+    // ...state,
+    entities: {
       ...goods,
       status: 'complete'
     },
     loading: false
   }),
   [getGoodsReqFailed]: (state, { payload: { goods } }) => ({
-    ...state,
-    goods: {
+    // ...state,
+    entities: {
       ...goods,
       status: 'failed'
     }

@@ -4,10 +4,11 @@ $prefix-cls: 'mall-goods-slider';
   width: 375px;
   height: 375px;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, .1);
+}
 
-  > img {
-    width: 375px;
-    height: 375px;
-    background-color: #f2f2f2;
-  }
+img {
+  width: 375px;
+  height: 375px;
+  filter: url('#change');
+  background-color: #f2f2f2;
 }

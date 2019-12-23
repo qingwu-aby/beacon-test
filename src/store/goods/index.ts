@@ -1,9 +1,12 @@
 import { handleActions } from 'redux-actions';
-import goodsReducer, { watchGoods } from './goods';
+import reducer, { watchGoodsSagas } from './goods';
 
-export const watchGoodsSaga = [...watchGoods];
+export const watchGoodsSaga = [...watchGoodsSagas];
 
-export default handleActions(goodsReducer, {
-  goods: {},
-  loading: true
-})
+const defaultState = {
+  entities: {}
+}
+
+export default handleActions({
+  ...reducer
+}, defaultState)

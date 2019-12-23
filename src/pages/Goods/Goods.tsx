@@ -28,11 +28,17 @@ const Goods: React.SFC<IProps> = ({
       itemId: match.params.itemId
     })
   }, [])
+  // const descKey = {
+  //   itemName: goods.itemName,
+  // }
+  console.log(goods);
   return <Suspense fallback={<Loading />}>
-    {goods.data && <Slider
-      imgList={goods.data.head_img_list}
+    {goods.headImgList && <Slider
+      imgList={goods.headImgList}
     />}
-    <Description />
+    <Description
+      
+    />
     <Summary />
     <Comments />
     <MallInfo />
@@ -41,7 +47,7 @@ const Goods: React.SFC<IProps> = ({
 }
 
 export default connect((state: any) => ({
-  goods: state[1].goods,
+  goods: state.goods.entities,
 }), {
   getGoodsReq
 })(Goods);

@@ -26,7 +26,6 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const px2rem = require('postcss-px-to-viewport');
-const eslint = require('eslint');
 
 const postcssNormalize = require('postcss-normalize');
 
@@ -110,14 +109,14 @@ module.exports = function(webpackEnv) {
                 propList: ['*'],
                 viewportUnit: 'vw',
                 fontViewportUnit: 'vw',
-                selectorBlackList: [],
+                selectorBlackList: ['vwh100'],
                 minPixelValue: 1,
                 mediaQuery: true,
                 replace: true,
                 exclude: /node_modules/i,
                 landscape: false,
                 landscapeUnit: 'vw',
-                landscapeWidth: 568
+                landscapeWidth: 750
             }),
             require('postcss-flexbugs-fixes'),
             require('postcss-preset-env')({
@@ -353,6 +352,10 @@ module.exports = function(webpackEnv) {
         // Disable require.ensure as it's not a standard language feature.
         { parser: { requireEnsure: false } },
 
+        {
+          test: /\.svg$/,
+          loader: '@svgr/webpack'
+        },
         // First, run the linter.
         // It's important to do this before Babel processes the JS.
         {

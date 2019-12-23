@@ -1,11 +1,14 @@
 :global(.vwh100) {
-  width: 100vw;
+  position: relative;
+  max-width: 750px;
+  margin: 0 auto;
   height: 100vh;
+  overflow: hidden;
+  background: #fff;
 }
 
 .app {
-  width: 375px;
+  margin: 0 auto;
   height: 100vh;
-  overflow: hidden;
 }
  
