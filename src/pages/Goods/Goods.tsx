@@ -10,18 +10,27 @@ import Detail from './Detail';
 import Loading from 'components/Loading';
 import { getGoodsReq } from 'store/goods/goods';
 
+import {
+  goodsInfoSelector,
+  goodsActivitySelector,
+  goodsDetailSelector,
+  goodsSliderSelector
+} from 'selectors/goods'
+
 const prefixCls = 'mall-goods';
 
 interface IProps {
   getGoodsReq: (T) => {};
   match: any;
-  goods: any;
+  sliderData: {
+    headImgList: string[];
+  };
 }
 
 const Goods: React.SFC<IProps> = ({
   getGoodsReq,
   match,
-  goods
+  sliderData
 }) => {
   useEffect(() => {
     getGoodsReq({
@@ -31,10 +40,10 @@ const Goods: React.SFC<IProps> = ({
   // const descKey = {
   //   itemName: goods.itemName,
   // }
-  console.log(goods);
+  console.log(sliderData)
   return <Suspense fallback={<Loading />}>
-    {goods.headImgList && <Slider
-      imgList={goods.headImgList}
+    {sliderData && <Slider
+      imgList={sliderData.headImgList}
     />}
     <Description
       
@@ -47,7 +56,7 @@ const Goods: React.SFC<IProps> = ({
 }
 
 export default connect((state: any) => ({
-  goods: state.goods.entities,
+  sliderData: goodsSliderSelector(state),
 }), {
   getGoodsReq
 })(Goods);

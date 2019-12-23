@@ -25,7 +25,7 @@ const Slider: React.FC<IProps> = ({
   };
   const imageSwiper = useRef()
   useEffect(() => {
-    const list = imgList.map(item => {
+    const list = imgList && imgList.map(item => {
       return {
         original: item,
         originalClass: `${prefixCls}-img`
