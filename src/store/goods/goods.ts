@@ -56,6 +56,7 @@ export default {
   }),
   [getGoodsReqFailed]: (state, { payload: { goods } }) => ({
     // ...state,
+    loading: false,
     entities: {
       ...goods,
       status: 'failed'

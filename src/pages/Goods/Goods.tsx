@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import Slider from './Slider';
@@ -23,40 +23,60 @@ interface IProps {
   getGoodsReq: (T) => {};
   match: any;
   sliderData: {
-    headImgList: string[];
+    headImgList: [];
   };
+  goodsInfo: {
+    goodsName: string;
+    itemId: string;
+    marketPrice: number;
+    price: number;
+    saleAmout: number;
+  };
+  detailInfo: {
+    goodsName: string;
+    detailImgList: [];
+  };
+  isLoading: boolean;
 }
 
 const Goods: React.SFC<IProps> = ({
   getGoodsReq,
   match,
-  sliderData
+  sliderData,
+  goodsInfo,
+  detailInfo,
+  isLoading
 }) => {
   useEffect(() => {
     getGoodsReq({
       itemId: match.params.itemId
     })
-  }, [])
+  }, [getGoodsReq])
   // const descKey = {
   //   itemName: goods.itemName,
   // }
   console.log(sliderData)
-  return <Suspense fallback={<Loading />}>
-    {sliderData && <Slider
-      imgList={sliderData.headImgList}
-    />}
-    <Description
-      
-    />
-    <Summary />
-    <Comments />
-    <MallInfo />
-    <Detail />
-  </Suspense>
+  return <main>
+    {
+      !isLoading ? <React.Fragment>
+        { sliderData && <Slider
+          imgList={sliderData.headImgList}
+        />}
+        <Description goodsInfo={goodsInfo} />
+        <Summary />
+        <Comments />
+        <MallInfo />
+        <Detail detailInfo={detailInfo}/>
+      </React.Fragment> : <Loading />
+    }
+  </main>
 }
 
 export default connect((state: any) => ({
   sliderData: goodsSliderSelector(state),
+  goodsInfo: goodsInfoSelector(state),
+  detailInfo: goodsDetailSelector(state),
+  isLoading: state.goods.isLoading
 }), {
   getGoodsReq
 })(Goods);

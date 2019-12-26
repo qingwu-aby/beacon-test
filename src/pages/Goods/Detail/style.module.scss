@@ -1,0 +1,55 @@
+$prefix-cls: 'mall-goods-detail';
+$nameColor: #0c0c0c;
+$tipsColor: rgba(128, 118, 110, 1);
+
+.#{$prefix-cls} {
+  &-title {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  %fake {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 35px;
+    height: 1px;
+    background: $tipsColor;
+  }
+
+  &-headline {
+    position: relative;
+    font-size: 12px;
+    color: $tipsColor;
+
+    &:before {
+      //@extend %fake;
+      //left: 128px;
+    }
+
+    &:after {
+     // @extend %fake;
+    }
+  }
+
+  &-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 15px 0;
+    background: #fff;
+    color: $nameColor;
+  }
+
+  &-info {
+    margin-top: 10px;
+    background: #fff;
+  }
+
+  &-img {
+    width: 375px;
+  }
+}
+

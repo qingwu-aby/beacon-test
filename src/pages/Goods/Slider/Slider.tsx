@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './style.module.scss';
+import style from './style.module.scss';
 import Swiper from 'react-image-gallery';
 
 const prefixCls = 'mall-goods-slider';
@@ -34,13 +34,13 @@ const Slider: React.FC<IProps> = ({
     setItemList(list)
   }, [imgList]);
 
-  return <div className={prefixCls}>
+  return <section className={style[prefixCls]}>
     <Swiper
       ref={imageSwiper}
       items={itemList}
       {...config}
     />
-  </div>
+  </section>
 }
 
 export default Slider;

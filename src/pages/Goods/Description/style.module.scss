@@ -1,0 +1,80 @@
+$prefix-cls: 'mall-goods-desc';
+$baseColor: #fff;
+$priceColor: #ff0036;
+$tagColor: rgba(238, 63, 77, 1);
+$sliceColor: #9c9c9c;
+$tipsColor: rgba(128, 118, 110, 1);
+$nameColor: #0c0c0c;
+
+.#{$prefix-cls} {
+  font-size: 14px;
+  margin-top: 10px;
+  background: $baseColor;
+  padding: 10px 15px;
+
+  &-mow {
+    font-size: 12px;
+    color: $priceColor;
+    vertical-align: baseline;
+  }
+
+  &-sell {
+    margin-right: 4px;
+    color: $priceColor;
+    font-size: 28px;
+    vertical-align: baseline;
+  }
+
+  &-tag {
+    padding: 2px 4px;
+    font-size: 12px;
+    color: $baseColor;
+    border-radius: 2px;
+    background: $tagColor;
+    vertical-align: super;
+  }
+
+  &-market {
+
+  }
+
+  &-slice {
+    position: relative;
+    font-size: 12px;
+    color: $sliceColor;
+
+    &:after {
+      position: absolute;
+      content: "";
+      top: 45%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      min-width: 20px;
+      background: $sliceColor;
+    }
+  }
+
+  &-intro {
+    width: 345px;
+    margin-top: 10px;
+  }
+
+  &-name {
+    line-height: 16px;
+    font-weight: bold;
+    font-size: 16px;
+    color: $nameColor;
+  }
+
+  &-tips {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+
+    > span {
+      font-size: 12px;
+      color: $tipsColor;
+    }
+  }
+}

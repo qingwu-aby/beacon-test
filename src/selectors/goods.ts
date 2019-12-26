@@ -1,13 +1,15 @@
 import { createSelector } from 'reselect';
-import { toCamel } from 'utils/index'
+import { toCamel } from 'utils/index';
+import { divide } from 'utils/precision';
 
 const goodsSelector = state => state.goods.entities;
 
 const getGoodsInfo = item => ({
-  goodsName: item.goodsName,
+  goodsName: item.itemName,
   itemId: item.itemId,
-  marketPrice: item.marketPrice,
-  price: item.costPrice
+  marketPrice: divide(item.markingPrice, 100),
+  price: divide(item.costPrice, 100),
+  saleAmout: item.saleAmount
 })
 
 export const goodsInfoSelector = createSelector(
@@ -28,6 +30,7 @@ export const goodsDetailSelector = createSelector(
   goodsInfoSelector,
   goodsSliderSelector,
   item => ({
+    goodsName: item.itemName,
     detailImgList: item.detailImgList
   })
 )
