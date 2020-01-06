@@ -50,4 +50,12 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+  <script>
+    ;(function () {
+      var src = '//cdn.jsdelivr.net/npm/eruda@2.0.1/eruda.min.js';
+      if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') !== 'true') return;
+      document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+      document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
+    })();
+  </script>
 </html>

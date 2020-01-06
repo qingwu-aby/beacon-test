@@ -1,7 +1,13 @@
 import React from 'react';
+import { ClickUtils } from 'utils/index'
 
 const Personal:React.FC = () => {
-  return <div>Personal</div>
+  const handleMultiClick = () => {
+    ClickUtils.multiClick(() => {
+      localStorage.setItem('active-eruda', 'true');
+    })
+  }
+  return <div onClick={handleMultiClick}>Personal</div>
 }
 
 export default Personal;
