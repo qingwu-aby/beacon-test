@@ -12,7 +12,6 @@ import { getGoodsReq } from 'store/goods/goods';
 
 import {
   goodsInfoSelector,
-  goodsActivitySelector,
   goodsDetailSelector,
   goodsSliderSelector
 } from 'selectors/goods'
@@ -51,12 +50,11 @@ const Goods: React.SFC<IProps> = ({
     getGoodsReq({
       itemId: match.params.itemId
     })
-  }, [getGoodsReq])
+  }, [getGoodsReq, match])
   // const descKey = {
   //   itemName: goods.itemName,
   // }
-  console.log(sliderData)
-  return <main>
+  return <main className={prefixCls}>
     {
       !isLoading ? <React.Fragment>
         { sliderData && <Slider

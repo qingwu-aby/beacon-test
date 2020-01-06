@@ -1,0 +1,20 @@
+$prefix-cls: 'mall-common-item';
+
+.#{$prefix-cls} {
+  &-vertical {
+    display: inline-block;
+    width: calc(50vw - 12px);
+    height: 226px;
+    margin: 0 0 8px 8px;
+    background: #fff;
+    border-radius: 5px;
+    vertical-align: top;
+  }
+
+  &-horizontal {
+    height: 168px;
+    margin: 0 8px 8px;
+    border-radius: 5px;
+    background: #fff;
+  }
+}

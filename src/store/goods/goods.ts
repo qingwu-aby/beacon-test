@@ -2,7 +2,6 @@ import { createActions } from 'redux-actions';
 import { takeLatest, call, put } from 'redux-saga/effects';
 import showToast from 'components/common/Toast';
 import { getGoodsModel } from 'services/goods';
-import camelCase from 'camelcase';
 
 const REQ_SUCCESS = 0;
 export const {

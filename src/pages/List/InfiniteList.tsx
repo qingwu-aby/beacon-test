@@ -36,10 +36,34 @@
 // }
 
 // export default InfiniteList;
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import VerticalItem from './Item/VerticalItem';
+import { fetchListReq } from 'store/list/list';
+import HorizontalItem from './Item/HorizontalItem';
+import style from './style.module.scss';
 
-const InfiniteList: React.FC = () => {
-  return <div>DdD</div>
+const prefixCls = 'mall-list-infinte';
+
+interface IProps {
+  fetchListReq: Function;
 }
 
-export default InfiniteList;
+const InfiniteList: React.FC<IProps> = ({
+  fetchListReq
+}) => {
+  useEffect(() => {
+    fetchListReq()
+  }, [fetchListReq])
+  return <div className={style[prefixCls]}>
+    {
+      [1, 2,3,4,5,6,7].fill(10).map(_ => <HorizontalItem />)
+    }
+  </div>
+}
+
+export default connect((state: any) => ({
+  isLoading: state.goods.isLoading
+}), {
+  fetchListReq
+})(InfiniteList);
