@@ -1,35 +1,39 @@
-import React, { Suspense, lazy } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
 import MainLayout from 'layouts/MainLayout';
 import Loading from 'components/Loading';
-const Login = lazy(() => import('pages/Login'));
-const Goods = lazy(() => import('pages/Goods'));
-const List = lazy(() => import('pages/List'));
+import { mainList } from 'constants/menu'
 
-const BaseLayout: React.SFC = () => <Suspense fallback={<Loading />}>
-  <Switch>
-    <Route path='/home' component={MainLayout}/>
-    <Route
-      path='/login'
-      exact
-      component={Login}
-    />
-    <Route
-      path='/goods/:itemId'
-      exact
-      component={Goods}
-    />
-    <Route
-      path='/list'
-      exact
-      component={List}
-    />
-    <Redirect
-      exact
-      from='/'
-      to='/home'
-    />
-  </Switch>
-</Suspense>
+const BaseLayout: React.FC<any> = ({
+  location
+}) => <TransitionGroup className={'router-wrapper'}>
+  <CSSTransition
+    timeout={300}
+    classNames={'fade'}
+    key={location.pathname}
+    unmountOnExit={true}
+  >
+    <Suspense fallback={<Loading />}>
+      <Switch location={location}>
+        <Route path='/home' component={MainLayout}/>
+        {
+          mainList.map((item, index) => <Route
+            path={item.path}
+            exact
+            key={index}
+            component={item.comp}
+          />)
+        }
+        <Redirect
+          exact
+          from='/'
+          to='/home'
+        />
+      </Switch>
+    </Suspense>
+  </CSSTransition>
+</TransitionGroup>;
 
-export default BaseLayout;
+export default withRouter(BaseLayout);

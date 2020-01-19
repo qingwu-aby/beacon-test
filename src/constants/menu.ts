@@ -1,17 +1,27 @@
-import { lazy, ComponentClass, FC, SFC } from 'react';
+import { lazy, ComponentClass, FC, SFC, ComponentType } from 'react';
 const Home = lazy(() => import('pages/Home'));
 // @todo 暂不启用
 // const Recommend = lazy(() => import('pages/Recommend'));
-const Search = lazy(() => import('pages/Search'));
+const Classification = lazy(() => import('pages/Classification'));
 const Cart = lazy(() => import('pages/Cart'));
 const Personal = lazy(() => import('pages/Personal'));
 
+// 非tab
+const Login = lazy(() => import('pages/Login'));
+const Goods = lazy(() => import('pages/Goods'));
+const List = lazy(() => import('pages/List'));
+
 type TMenu = {
-    icon?: string,
-    activeIcon?: string,
-    label: string,
-    link: string,
-    comp: ComponentClass | FC | SFC,
+  icon?: string,
+  activeIcon?: string,
+  label: string,
+  link: string,
+  comp: ComponentClass | FC | SFC,
+};
+
+type MData = {
+  path: string,
+  comp: ComponentClass<{}, any> | FC | SFC | ComponentType,
 };
 
 export const menuList: Array<TMenu> = [
@@ -27,7 +37,7 @@ export const menuList: Array<TMenu> = [
     activeIcon: 'icon-tab-search-active',
     label: '搜索',
     link: '/home/search',
-    comp: Search
+    comp: Classification
   },
   // {
   //   icon: 'icon-tab-new',
@@ -50,4 +60,19 @@ export const menuList: Array<TMenu> = [
     link: '/home/personal',
     comp: Personal
   }
-]
+];
+
+export const mainList: Array<MData> = [
+  {
+    path: '/login',
+    comp: Login,
+  },
+  {
+    path: '/goods/:itemId',
+    comp: Goods,
+  },
+  {
+    path: '/list',
+    comp: List,
+  },
+];

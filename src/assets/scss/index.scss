@@ -1,12 +1,3 @@
-@import "~react-image-gallery/styles/scss/image-gallery.scss";
-// @import "~react-virtualized/styles/css";
-$designWidth: 375;
-$baseFont: 14;
-$maxWidth: 600;
-$minWidth: 320;
-$baseColor: rgba(238, 160, 140, 1);
-$priceColor: #ff0036;
-
 html {
   font-size: $baseFont + px;
   max-width: 750px;
@@ -71,4 +62,23 @@ button {
 ul,
 ol {
   list-style: none;
+}
+
+/* 动画相关样式 */
+.fade-enter, .fade-appear {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active,
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
 }

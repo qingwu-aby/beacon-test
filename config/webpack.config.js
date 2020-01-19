@@ -134,7 +134,7 @@ module.exports = function(webpackEnv) {
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap,
         },
-      },
+      }
     ].filter(Boolean);
     if (preProcessor) {
       loaders.push(
@@ -149,6 +149,15 @@ module.exports = function(webpackEnv) {
           options: {
             sourceMap: true,
           },
+        },
+        {
+          loader: 'sass-resources-loader',
+          options: {
+            // Provide path to the file with resources
+            resources: [
+              path.resolve(paths.appSrc, 'assets/scss/vars.scss')
+            ]
+          }
         }
       );
     }

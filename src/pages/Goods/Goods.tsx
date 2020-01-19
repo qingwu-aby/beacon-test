@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { RouteProps } from 'react-router-dom';
 
 import Slider from './Slider';
 import Description from './Description';
@@ -20,7 +21,11 @@ const prefixCls = 'mall-goods';
 
 interface IProps {
   getGoodsReq: (T) => {};
-  match: any;
+  match: {
+    params: {
+      itemId: string | number
+    }
+  };
   sliderData: {
     headImgList: [];
   };
@@ -38,7 +43,7 @@ interface IProps {
   isLoading: boolean;
 }
 
-const Goods: React.SFC<IProps> = ({
+const Goods: React.SFC<IProps & RouteProps> = ({
   getGoodsReq,
   match,
   sliderData,
@@ -51,9 +56,6 @@ const Goods: React.SFC<IProps> = ({
       itemId: match.params.itemId
     })
   }, [getGoodsReq, match])
-  // const descKey = {
-  //   itemName: goods.itemName,
-  // }
   return <main className={prefixCls}>
     {
       !isLoading ? <React.Fragment>

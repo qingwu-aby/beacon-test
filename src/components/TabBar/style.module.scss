@@ -37,11 +37,11 @@ $prefix-cls: 'mall-tab';
 
   &-active {
     > i {
-      color: rgba(238, 160, 140, 1);
+      color: $baseColor;
     }
 
     > span {
-      color: rgba(238, 160, 140, 1);
+      color: $baseColor;
     }
   }
 }

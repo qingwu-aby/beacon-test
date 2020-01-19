@@ -4,10 +4,10 @@ $prefix-cls: 'mall-common-button';
   width: 200px;
   height: 44px;
   font-size: 16px;
-  box-shadow: 0 0 2px rgba(238, 160, 140, 1);
+  box-shadow: 0 0 2px $baseColor;
   outline: none;
   color: #fff;
   cursor: pointer;
-  background-color: rgba(238, 160, 140, 1);
+  background-color: $baseColor;
   border-radius: 5px;
 }
