@@ -16,11 +16,13 @@ type TMenu = {
   activeIcon?: string,
   label: string,
   link: string,
+  exact: boolean,
   comp: ComponentClass | FC | SFC,
 };
 
 type MData = {
   path: string,
+  exact: boolean,
   comp: ComponentClass<{}, any> | FC | SFC | ComponentType,
 };
 
@@ -29,6 +31,7 @@ export const menuList: Array<TMenu> = [
     icon: 'icon-tab-home',
     activeIcon: 'icon-tab-home-active',
     label: '首页',
+    exact: true,
     link: '/home',
     comp: Home
   },
@@ -36,6 +39,7 @@ export const menuList: Array<TMenu> = [
     icon: 'icon-tab-search',
     activeIcon: 'icon-tab-search-active',
     label: '搜索',
+    exact: false,
     link: '/home/search',
     comp: Classification
   },
@@ -50,6 +54,7 @@ export const menuList: Array<TMenu> = [
     icon: 'icon-cart_light',
     activeIcon: 'icon-cart_fill_light',
     label: '购物车',
+    exact: true,
     link: '/home/cart',
     comp: Cart
   },
@@ -57,6 +62,7 @@ export const menuList: Array<TMenu> = [
     icon: 'icon-tab-mine',
     activeIcon: 'icon-tab-mine-active',
     label: '个人中心',
+    exact: true,
     link: '/home/personal',
     comp: Personal
   }
@@ -65,14 +71,17 @@ export const menuList: Array<TMenu> = [
 export const mainList: Array<MData> = [
   {
     path: '/login',
+    exact: true,
     comp: Login,
   },
   {
     path: '/goods/:itemId',
+    exact: true,
     comp: Goods,
   },
   {
     path: '/list',
+    exact: true,
     comp: List,
-  },
+  }
 ];

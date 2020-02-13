@@ -11,7 +11,7 @@ const HomeRouter: React.SFC<{}> = ({}) => <div className={style[prefixCls]}>
       menuList.map((item, index: number) => <NavLink
         key={`tab-${index}`}
         to={item.link}
-        exact
+        exact={item.exact}
         className={style[`${prefixCls}-link`]}
         activeClassName={style[`${prefixCls}-active`]}
       >

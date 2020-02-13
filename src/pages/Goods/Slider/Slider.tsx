@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import style from './style.module.scss';
 import Swiper from 'react-image-gallery';
+import Loading from 'components/Loading';
+import style from './style.module.scss';
 
 const prefixCls = 'mall-goods-slider';
 interface IProps {
@@ -18,10 +19,10 @@ const Slider: React.FC<IProps> = ({
     showPlayButton: false,
     showThumbnails: false,
     showNav: false,
-    lazyLoad: true,
+    lazyLoad: false,
     autoPlay: true,
-    slideDuration: 450,
-    slideInterval: 200000
+    // slideDuration: 450,
+    slideInterval: 3000
   };
   const imageSwiper = useRef()
   useEffect(() => {
@@ -35,11 +36,13 @@ const Slider: React.FC<IProps> = ({
   }, [imgList]);
 
   return <section className={style[prefixCls]}>
-    <Swiper
-      ref={imageSwiper}
-      items={itemList}
-      {...config}
-    />
+    {
+      itemList && itemList.length > 0 ? <Swiper
+        ref={imageSwiper}
+        items={itemList}
+        {...config}
+      /> : <Loading />
+    }
   </section>
 }
 

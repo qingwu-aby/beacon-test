@@ -1,0 +1,18 @@
+$prefix-cls: 'mall-goods';
+
+.#{$prefix-cls} {
+  position: absolute;
+  overflow: hidden;
+  height: 100vh;
+
+  &-wrapper {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 100%;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

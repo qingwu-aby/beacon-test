@@ -2,8 +2,9 @@ import { createActions } from 'redux-actions';
 import { takeLatest, call, put } from 'redux-saga/effects';
 import showToast from 'components/common/Toast';
 import { getGoodsModel } from 'services/goods';
+import { toCamel } from 'utils/index';
+import { REQ_SUCCESS } from 'constants/index';
 
-const REQ_SUCCESS = 0;
 export const {
   goods: {
     getGoodsReq,
@@ -31,7 +32,7 @@ function* getGoodsReqSaga({ payload }) {
       }
       showToast(opts);
     } else {
-      yield put(getGoodsReqSuccess({goods: res.data}));
+      yield put(getGoodsReqSuccess({goods: toCamel(res.data)}));
     }
   } catch (err) {
     yield put(getGoodsReqFailed(err));
@@ -46,19 +47,17 @@ export const watchGoodsSagas = [watchGetGoods];
 
 export default {
   [getGoodsReqSuccess]: (state, { payload: { goods } }) => ({
-    // ...state,
+    ...state,
     entities: {
       ...goods,
-      status: 'complete'
     },
     loading: false
   }),
   [getGoodsReqFailed]: (state, { payload: { goods } }) => ({
-    // ...state,
+    ...state,
     loading: false,
     entities: {
       ...goods,
-      status: 'failed'
     }
   })
 }

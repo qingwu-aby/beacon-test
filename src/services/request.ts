@@ -1,5 +1,4 @@
 import Qs from 'qs';
-import { toCamel } from 'utils/index'
 
 export enum ContentType {
   json = 'application/json;charset=UTF-8',
@@ -48,7 +47,7 @@ const fetchReq = ({
     })
     .then(resData => resData.json())
     .then(res => resolve({
-        data: toCamel(res.data),
+        data: res.data,
         serverTime: res.t || Date.now(),
         code: res.code,
         msg: res.msg || 'success'

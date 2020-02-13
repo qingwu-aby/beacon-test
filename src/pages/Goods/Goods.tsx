@@ -8,6 +8,7 @@ import Summary from './Summary';
 import Comments from './Comments';
 import MallInfo from './MallInfo';
 import Detail from './Detail';
+import PlaceOrder from './PlaceOrder';
 import Loading from 'components/Loading';
 import { getGoodsReq } from 'store/goods/goods';
 
@@ -15,7 +16,8 @@ import {
   goodsInfoSelector,
   goodsDetailSelector,
   goodsSliderSelector
-} from 'selectors/goods'
+} from 'selectors/goods';
+import style from './style.module.scss';
 
 const prefixCls = 'mall-goods';
 
@@ -40,7 +42,7 @@ interface IProps {
     goodsName: string;
     detailImgList: [];
   };
-  isLoading: boolean;
+  loading: boolean;
 }
 
 const Goods: React.SFC<IProps & RouteProps> = ({
@@ -49,26 +51,29 @@ const Goods: React.SFC<IProps & RouteProps> = ({
   sliderData,
   goodsInfo,
   detailInfo,
-  isLoading
+  loading
 }) => {
   useEffect(() => {
     getGoodsReq({
       itemId: match.params.itemId
     })
   }, [getGoodsReq, match])
-  return <main className={prefixCls}>
-    {
-      !isLoading ? <React.Fragment>
-        { sliderData && <Slider
-          imgList={sliderData.headImgList}
-        />}
-        <Description goodsInfo={goodsInfo} />
-        <Summary />
-        <Comments />
-        <MallInfo />
-        <Detail detailInfo={detailInfo}/>
-      </React.Fragment> : <Loading />
-    }
+  return <main className={style[prefixCls]}>
+    <div className={style[`${prefixCls}-wrapper`]}>
+      {
+        !loading ? <React.Fragment>
+          { sliderData && <Slider
+            imgList={sliderData.headImgList}
+          />}
+          <Description goodsInfo={goodsInfo} />
+          <Summary />
+          <Comments />
+          <MallInfo />
+          <Detail detailInfo={detailInfo}/>
+        </React.Fragment> : <Loading />
+      }
+    </div>
+    <PlaceOrder />
   </main>
 }
 
@@ -76,7 +81,7 @@ export default connect((state: any) => ({
   sliderData: goodsSliderSelector(state),
   goodsInfo: goodsInfoSelector(state),
   detailInfo: goodsDetailSelector(state),
-  isLoading: state.goods.isLoading
+  loading: state.goods.loading
 }), {
   getGoodsReq
 })(Goods);

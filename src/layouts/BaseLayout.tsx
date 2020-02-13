@@ -8,20 +8,21 @@ import { mainList } from 'constants/menu'
 
 const BaseLayout: React.FC<any> = ({
   location
-}) => <TransitionGroup className={'router-wrapper'}>
-  <CSSTransition
-    timeout={300}
-    classNames={'fade'}
-    key={location.pathname}
-    unmountOnExit={true}
-  >
-    <Suspense fallback={<Loading />}>
+}) => <Suspense fallback={<Loading />}>
+  <TransitionGroup className={'router-wrapper'}>
+    <CSSTransition
+      timeout={300}
+      classNames={'fade'}
+      key={location.pathname}
+      unmountOnExit={true}
+    >
+
       <Switch location={location}>
-        <Route path='/home' component={MainLayout}/>
+        <Route path='/home' component={MainLayout} />
         {
           mainList.map((item, index) => <Route
             path={item.path}
-            exact
+            exact={item.exact}
             key={index}
             component={item.comp}
           />)
@@ -32,8 +33,8 @@ const BaseLayout: React.FC<any> = ({
           to='/home'
         />
       </Switch>
-    </Suspense>
-  </CSSTransition>
-</TransitionGroup>;
+    </CSSTransition>
+  </TransitionGroup>
+</Suspense>;
 
 export default withRouter(BaseLayout);

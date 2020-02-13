@@ -31,7 +31,7 @@ export const goodsDetailSelector = createSelector(
   goodsSliderSelector,
   item => ({
     goodsName: item.itemName,
-    detailImgList: item.detailImgList
+    detailImgList: item.detailImgList || []
   })
 )
 
