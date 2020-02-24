@@ -62,9 +62,9 @@ const Goods: React.SFC<IProps & RouteProps> = ({
     <div className={style[`${prefixCls}-wrapper`]}>
       {
         !loading ? <React.Fragment>
-          { sliderData && <Slider
+          {/* { sliderData && <Slider
             imgList={sliderData.headImgList}
-          />}
+          />} */}
           <Description goodsInfo={goodsInfo} />
           <Summary />
           <Comments />
