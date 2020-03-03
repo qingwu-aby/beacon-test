@@ -113,12 +113,9 @@ module.exports = function(webpackEnv) {
                 fontViewportUnit: 'vw',
                 selectorBlackList: ['vwh100'],
                 minPixelValue: 1,
-                mediaQuery: true,
+                mediaQuery: false,
                 replace: true,
-                exclude: /node_modules/i,
-                landscape: false,
-                landscapeUnit: 'vw',
-                landscapeWidth: 750
+                exclude: /node_modules/i
             }),
             require('postcss-flexbugs-fixes'),
             require('postcss-preset-env')({
@@ -365,7 +362,7 @@ module.exports = function(webpackEnv) {
 
         {
           test: /\.svg$/,
-          loader: '@svgr/webpack'
+          loader: ['@svgr/webpack', 'svg-inline-loader']
         },
         // First, run the linter.
         // It's important to do this before Babel processes the JS.
@@ -587,7 +584,7 @@ module.exports = function(webpackEnv) {
         algorithm: 'brotliCompress',
         test: /\.(js|css|html|svg)$/,
         compressionOptions: { level: 11 },
-        threshold: 10240,
+        threshold: 1024,
         minRatio: 0.8,
       }),
       // Inlines the webpack runtime script. This script is too small to warrant

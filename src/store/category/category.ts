@@ -49,12 +49,10 @@ export const watchCategorySagas = [watchGetCategory];
 export default {
   [fetchCategoryReqSucc]: (state, { payload: { category } }) => ({
     ...state,
-    list: category,
-    loading: false
+    list: category
   }),
   [fetchCategoryReqFailed]: (state, { payload: { category } }) => ({
     ...state,
-    loading: false,
     list: category
   })
 }

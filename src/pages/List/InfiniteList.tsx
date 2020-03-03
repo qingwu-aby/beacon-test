@@ -63,7 +63,7 @@ const InfiniteList: React.FC<IProps> = ({
 }
 
 export default connect((state: any) => ({
-  isLoading: state.goods.isLoading
+  isLoading: state.goods.isLoading || false
 }), {
   fetchListReq
 })(InfiniteList);

@@ -4,7 +4,6 @@ import reducer, { watchListSagas } from './list';
 export const watchListSaga = [...watchListSagas];
 
 const defaultState = {
-  isLoading: true,
   entities: {}
 }
 

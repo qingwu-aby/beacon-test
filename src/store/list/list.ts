@@ -46,16 +46,14 @@ export const watchListSagas = [watchfetchList];
 
 export default {
   [fetchListReqSuccess]: (state, { payload: { list } }) => ({
-    // ...state,
+    ...state,
     entities: {
       ...list,
       status: 'complete'
-    },
-    loading: false
+    }
   }),
   [fetchListReqFailed]: (state, { payload: { list } }) => ({
-    // ...state,
-    loading: false,
+    ...state,
     entities: {
       ...list,
       status: 'failed'

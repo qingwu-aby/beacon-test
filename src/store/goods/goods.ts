@@ -50,12 +50,10 @@ export default {
     ...state,
     entities: {
       ...goods,
-    },
-    loading: false
+    }
   }),
   [getGoodsReqFailed]: (state, { payload: { goods } }) => ({
     ...state,
-    loading: false,
     entities: {
       ...goods,
     }

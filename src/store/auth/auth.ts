@@ -80,8 +80,7 @@ export default {
     auth: {
       ...auth,
       status: 'complete'
-    },
-    loading: false
+    }
   }),
   [smsVerifyFailed]: (state, { payload: { auth } }) => ({
     ...state,
@@ -95,8 +94,7 @@ export default {
     auth: {
       ...auth,
       status: 'complete'
-    },
-    loading: false
+    }
   }),
   [fastLoginFailed]: (state, { payload: { auth } }) => ({
     ...state,
