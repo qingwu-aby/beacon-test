@@ -362,7 +362,7 @@ module.exports = function(webpackEnv) {
 
         {
           test: /\.svg$/,
-          loader: ['@svgr/webpack', 'svg-inline-loader']
+          loader: 'svg-inline-loader'
         },
         // First, run the linter.
         // It's important to do this before Babel processes the JS.
@@ -392,7 +392,7 @@ module.exports = function(webpackEnv) {
             // smaller than specified limit in bytes as data URLs to avoid requests.
             // A missing `test` is equivalent to a match.
             {
-              test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+              test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.svg$/],
               loader: require.resolve('url-loader'),
               options: {
                 limit: imageInlineSizeLimit,
@@ -575,7 +575,7 @@ module.exports = function(webpackEnv) {
       new CompressionPlugin({
         filename: '[path].gz[query]',
         algorithm: 'gzip',
-        test: /\.js$|\.css$|\.html$/,
+        test: /\.js$|\.css$|\.html$|\.svg$|\.woff$|\.eot$|\.ttf$/,
         threshold: 10240,
         minRatio: 0.8,
       }),

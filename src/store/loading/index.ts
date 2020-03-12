@@ -1,6 +1,11 @@
-import immer from 'immer';
+import { createActions } from 'redux-actions';
 
-const SET_LOADING = 'SET_LOADING';
-
-// const 
-
+export const {
+  loading: {
+    setLoading
+  }
+}: any = createActions({
+  LOADING: {
+    SET_LOADING: null
+  }
+})
