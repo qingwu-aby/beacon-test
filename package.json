@@ -17,7 +17,7 @@
     "fs-extra": "7.0.1",
     "history": "^4.10.1",
     "identity-obj-proxy": "3.0.0",
-    "immer": "^5.3.2",
+    "immer": "^8.0.1",
     "is-wsl": "^1.1.0",
     "qs": "^6.9.1",
     "react": "^16.12.0",
